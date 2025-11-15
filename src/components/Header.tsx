@@ -62,7 +62,7 @@ export const Header = () => {
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-0.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30">
           <button
-            onClick={() => scrollToSection("how-it-works")}
+            onClick={() => scrollToSection("hero")}
             className="px-3 py-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-lg hover:bg-primary/10 whitespace-nowrap"
           >
             Features
@@ -80,7 +80,7 @@ export const Header = () => {
             Reviews
           </button>
           <button
-            onClick={() => scrollToSection("faqs")}
+            onClick={() => scrollToSection("how-it-works")}
             className="px-3 py-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-lg hover:bg-primary/10 whitespace-nowrap"
           >
             FAQs

@@ -50,10 +50,10 @@ export const HeroSection = () => {
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-6 lg:space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 sm:px-5 sm:py-2.5 shadow-sm hover:shadow-md transition-shadow duration-300">
+            {/* <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 sm:px-5 sm:py-2.5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               <span className="text-xs sm:text-sm font-medium text-muted-foreground">30,000+ Active Members</span>
-            </div>
+            </div> */}
 
             {/* Main Headline */}
             <div className="space-y-4">
