@@ -30,16 +30,16 @@ const Index = () => {
         <HowItWorksSection />
       </div>
 
-      {/* <DropShowcaseSection
+      <DropShowcaseSection
         title="Starbucks Bearista – $30 → $200 Profit Per Item"
         bullets={[
           "Members secured dozens within hours",
           "Simple alert → buy → flip",
           "Fast-moving item with massive margins",
         ]}
-        imageNote="20–50 photos of members holding the Bearista, receipts, carts, etc."
+        // imageNote="20–50 photos of members holding the Bearista, receipts, carts, etc."
         variant="default"
-      /> */}
+      />
 
       {/* <DropShowcaseSection
         title="Monster Jam Christmas Drop – $20 → $200 Profit"
