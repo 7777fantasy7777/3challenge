@@ -156,7 +156,7 @@ const StarIcon = ({ size = 16 }: { size?: number }) => {
   );
 };
 
-const SmallStarIcon = () => {
+const SmallStarIcon = ({ size = 14 }: { size?: number }) => {
   return (
     <svg
       width={12}
@@ -461,7 +461,7 @@ const ReviewsSection = () => {
         className="scroll-mt-10 border-b border-gray-800/50 py-20 px-6 lg:px-16 xl:px-20 bg-[#050507] text-white"
       >
         <div className="max-w-[80rem] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.23fr_0.77fr] gap-12 lg:gap-[20rem]">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.23fr_0.77fr] gap-12 lg:gap-[10rem]">
             {/* Left Column - Rating Summary */}
             <div className="space-y-2">
               <h2 className="text-3xl lg:text-4xl font-bold text-white">Reviews</h2>
@@ -506,7 +506,7 @@ const ReviewsSection = () => {
                           <img
                             src={review.avatar}
                             alt={review.username}
-                            className="w-10 h-10 rounded-full object-cover"
+                            className="w-12 h-12 rounded-full object-cover"
                           />
                         ) : (
                           <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white font-semibold text-sm">
