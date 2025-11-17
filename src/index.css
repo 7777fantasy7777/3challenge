@@ -163,3 +163,8 @@ All colors MUST be HSL.
 .animate-flash {
   animation: flash 1s ease-in-out infinite;
 }
+
+.font-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

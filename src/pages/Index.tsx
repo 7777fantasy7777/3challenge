@@ -10,6 +10,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Reviews } from "@/components/Review";
 import { Header } from "@/components/Header";
 import WhopCheckoutSection from "@/components/WhopCheckoutSection";
+import ReviewsSection from "@/components/ReviewsSection";
 
 const Index = () => {
   return (
@@ -81,7 +82,8 @@ const Index = () => {
       /> */}
 
       <div id="reviews">
-        <Reviews />
+        {/* <Reviews /> */}
+        <ReviewsSection />
       </div>
 
       {/* <div id="faqs" className="py-16 sm:py-20 lg:py-24 bg-background">
