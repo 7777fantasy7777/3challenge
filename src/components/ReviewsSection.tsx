@@ -174,7 +174,7 @@ const SmallStarIcon = () => {
 const RatingBar = ({ stars, percentage }: { stars: number; percentage: number }) => {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm text-white w-[65px]">{stars} {stars === 1 ? "star" : "stars"}</span>
+      <span className="text-sm text-white w-[40px]">{stars} {stars === 1 ? "star" : "stars"}</span>
       <div className="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
         <div
           className="h-full bg-[#E8B337] rounded-full transition-all duration-300"
@@ -460,7 +460,7 @@ const ReviewsSection = () => {
         id="reviews"
         className="scroll-mt-10 border-b border-gray-800/50 py-20 px-6 lg:px-16 xl:px-20 bg-[#050507] text-white"
       >
-        <div className="max-w-[100rem] mx-auto">
+        <div className="max-w-[80rem] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[0.23fr_0.77fr] gap-12 lg:gap-[20rem]">
             {/* Left Column - Rating Summary */}
             <div className="space-y-2">
