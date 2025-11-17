@@ -460,10 +460,10 @@ const ReviewsSection = () => {
         id="reviews"
         className="scroll-mt-10 border-b border-gray-800/50 py-20 px-6 lg:px-16 xl:px-20 bg-[#050507] text-white"
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.38fr_0.62fr] gap-12 lg:gap-20">
+        <div className="max-w-[100rem] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.23fr_0.77fr] gap-12 lg:gap-[20rem]">
             {/* Left Column - Rating Summary */}
-            <div className="space-y-5">
+            <div className="space-y-2">
               <h2 className="text-3xl lg:text-4xl font-bold text-white">Reviews</h2>
               
               {/* Overall Rating - YELLOW STARS */}
@@ -482,7 +482,7 @@ const ReviewsSection = () => {
               <p className="text-sm text-gray-400">1,872 total reviews</p>
               
               {/* Rating Distribution */}
-              <div className="space-y-3.5 pt-2">
+              <div className="space-y-0 pt-2">
                 {ratingDistribution.map((item) => (
                   <RatingBar key={item.stars} stars={item.stars} percentage={item.percentage} />
                 ))}
@@ -560,7 +560,7 @@ const ReviewsSection = () => {
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="hover:text-blue-400 text-blue-500 mt-8 flex cursor-pointer items-center justify-center gap-2 self-end"
+                className="hover:text-blue-400 text-blue-500 mt-8 flex cursor-pointer items-center justify-center gap-2"
               >
                 <span className="text-base font-medium">See all reviews</span>
                 <ChevronDown className="w-3 h-3" />
