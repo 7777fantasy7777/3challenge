@@ -248,7 +248,7 @@ const ReviewsModal = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl w-[95vw] max-h-[90vh] bg-[#141414] border-gray-800 text-white p-0 flex flex-col rounded-lg shadow-2xl overflow-hidden">
+      <DialogContent className="max-w-4xl w-[95vw] max-h-[90vh] bg-[#141414] border-gray-800 text-white p-0 flex flex-col rounded-lg shadow-2xl overflow-hidden gap-0">
         <DialogHeader className="px-6 pt-6 pb-4 border-b border-gray-800/50 bg-[#1a1a1a] relative">
           <div className="flex items-center justify-center relative">
             <DialogTitle className="text-2xl font-semibold text-white text-center">Reviews</DialogTitle>
@@ -296,7 +296,7 @@ const ReviewsModal = ({
           ))}
         </div>
         
-        <div ref={scrollableRef} className="flex-1 overflow-y-auto px-6 py-4 bg-[#141414]">
+        <div ref={scrollableRef} className="flex-1 overflow-y-auto px-6 py-4 bg-[#141414] scrollbar-gutter-stable scrollbar-dark">
           <ul className="flex flex-col">
             {currentReviews.length > 0 ? (
               currentReviews.map((review, index) => (
