@@ -12,6 +12,17 @@ import product8 from "@/assets/product-8.jpg";
 import product9 from "@/assets/product-9.jpg";
 import product10 from "@/assets/product-10.jpg";
 import product11 from "@/assets/product-11.jpg";
+import HeroImageSilde from "./HeroImageSilde";
+
+const images = [
+  { id: 1, img: "assets/hero-image/hero-image (1).jpg" },
+  { id: 2, img: "assets/hero-image/hero-image (2).jpg" },
+  { id: 3, img: "assets/hero-image/hero-image (3).jpg" },
+  { id: 4, img: "assets/hero-image/hero-image (4).jpg" },
+  { id: 5, img: "assets/hero-image/hero-image (5).jpg" },
+  { id: 6, img: "assets/hero-image/hero-image (6).jpg" },
+  { id: 7, img: "assets/hero-image/hero-image (7).jpg" },
+];
 
 export const HeroSection = () => {
   const products = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11];
@@ -19,7 +30,7 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Animated Product Background */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 overflow-hidden">
         {/* First row - scrolling right */}
         <div className="absolute top-[10%] left-0 right-0 flex animate-scroll-right">
           {[...products, ...products].map((product, i) => (
@@ -27,7 +38,7 @@ export const HeroSection = () => {
               key={`top-${i}`}
               src={product}
               alt=""
-              className="w-32 h-32 object-cover rounded-lg mx-4 flex-shrink-0"
+              className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover rounded-lg mx-2 sm:mx-3 md:mx-4 flex-shrink-0"
             />
           ))}
         </div>
@@ -39,14 +50,14 @@ export const HeroSection = () => {
               key={`bottom-${i}`}
               src={product}
               alt=""
-              className="w-32 h-32 object-cover rounded-lg mx-4 flex-shrink-0"
+              className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover rounded-lg mx-2 sm:mx-3 md:mx-4 flex-shrink-0"
             />
           ))}
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative z-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 relative z-10">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-20 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-6 lg:space-y-8">
             {/* Badge */}
@@ -57,7 +68,7 @@ export const HeroSection = () => {
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.15] tracking-tight">
                 Build an Extra{" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
                   $2,000/Month Flipping,
@@ -94,7 +105,7 @@ export const HeroSection = () => {
               <Button 
                 variant="hero" 
                 size="xl" 
-                className="min-w-[250px] shadow-glow hover:shadow-glow text-base sm:text-lg px-8 py-6" 
+                className="w-full sm:w-auto min-w-[200px] sm:min-w-[250px] shadow-glow hover:shadow-glow text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6" 
                 onClick={(e) => {
                   e.preventDefault();
                   const checkoutSection = document.getElementById('checkout');
@@ -120,13 +131,16 @@ export const HeroSection = () => {
           </div>
 
           {/* Right Column - Hero Image */}
-          <div className="relative group mt-8 lg:mt-0">
-            <div className="absolute -inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
-            <img
-              src={heroImage}
-              alt="eMoney Deals Success - Member showing profitable deals on smartphone"
-              className="relative w-full h-auto rounded-2xl shadow-2xl border border-border hover:scale-[1.02] transition-transform duration-500"
-            />
+          <div className="relative group mt-8 lg:mt-0 flex items-center justify-center w-full overflow-visible">
+            <div className="absolute -inset-2 sm:-inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
+            <div className="w-full max-w-full overflow-visible flex items-center justify-center">
+              <HeroImageSilde 
+                randomRotation={true}
+                sensitivity={180}
+                sendToBackOnClick={false}
+                cardsData={images}
+              />
+            </div>
           </div>
         </div>
       </div>

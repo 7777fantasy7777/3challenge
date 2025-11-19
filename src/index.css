@@ -244,3 +244,67 @@ All colors MUST be HSL.
     /* slightly lighter on hover */
   }
 }
+
+.stack-container {
+  position: relative;
+  perspective: 600px;
+  margin: 0 auto;
+  overflow: visible !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .stack-container {
+    perspective: 400px;
+  }
+}
+
+.card-rotate {
+  position: absolute;
+  cursor: grab;
+  touch-action: pan-y pan-x;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .card-rotate {
+    cursor: pointer;
+  }
+}
+
+.card {
+  border-radius: 20px;
+  border: 5px solid #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 16px;
+    border-width: 3px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.card-image {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
