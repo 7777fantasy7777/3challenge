@@ -259,6 +259,15 @@ All colors MUST be HSL.
 @media (max-width: 640px) {
   .stack-container {
     perspective: 400px;
+    /* Ensure container doesn't cause horizontal scroll */
+    max-width: calc(100vw - 16px);
+  }
+}
+
+/* Very small screens (320px - 375px) */
+@media (max-width: 375px) {
+  .stack-container {
+    max-width: calc(100vw - 8px);
   }
 }
 

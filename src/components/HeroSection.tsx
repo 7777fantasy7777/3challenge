@@ -133,7 +133,7 @@ export const HeroSection = () => {
           {/* Right Column - Hero Image */}
           <div className="relative group mt-8 lg:mt-0 flex items-center justify-center w-full overflow-visible">
             <div className="absolute -inset-2 sm:-inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
-            <div className="w-full max-w-full overflow-visible flex items-center justify-center">
+            <div className="w-full max-w-full overflow-visible flex items-center justify-center px-2 sm:px-0">
               <HeroImageSilde 
                 randomRotation={true}
                 sensitivity={180}
