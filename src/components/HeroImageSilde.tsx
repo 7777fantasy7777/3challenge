@@ -87,11 +87,16 @@ export default function Stack({
         // Very small screens (320px - 360px)
         cardWidth = windowWidth - 20; // Minimal padding (10px each side)
         cardHeight = cardWidth * 0.58;
-      } else {
-        // Standard mobile (360px - 640px)
-        const availableWidth = windowWidth - 32; // 16px padding on each side
-        cardWidth = Math.min(availableWidth, windowWidth * 0.88);
+      } else if (windowWidth < 480) {
+        // Small mobile (360px - 480px)
+        const availableWidth = windowWidth - 28; // 14px padding on each side
+        cardWidth = Math.min(availableWidth, windowWidth * 0.9);
         cardHeight = cardWidth * 0.58;
+      } else {
+        // Standard mobile (480px - 640px)
+        const availableWidth = windowWidth - 40; // 20px padding on each side
+        cardWidth = Math.min(availableWidth, windowWidth * 0.85);
+        cardHeight = cardWidth * 0.57;
       }
     } else if (windowWidth < 768) {
       // Small tablets

@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/HeroSection";
 import { WhyDifferentSection } from "@/components/WhyDifferentSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+// import { SocialProofSection } from "@/components/SocialProofSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { DropShowcaseSection } from "@/components/DropShowcaseSection";
 import { PokemonShowcaseSection } from "@/components/PokemonShowcaseSection";
@@ -11,6 +11,8 @@ import { Reviews } from "@/components/Review";
 import { Header } from "@/components/Header";
 import WhopCheckoutSection from "@/components/WhopCheckoutSection";
 import ReviewsSection from "@/components/ReviewsSection";
+import PersonalPolicySalesCalculator from "@/components/PersonalPolicySalesCalculator";
+import EarningsCalculatorSection from "@/components/EarningsCalculatorSection";
 
 const Index = () => {
   return (
@@ -19,12 +21,14 @@ const Index = () => {
       <div id="hero">
         <HeroSection />
       </div>
+      
+      <EarningsCalculatorSection />
 
       <StatsSection />
 
       <WhyDifferentSection />
 
-      <SocialProofSection />
+      {/* <SocialProofSection /> */}
 
       <div id="how-it-works">
         <HowItWorksSection />
@@ -33,9 +37,7 @@ const Index = () => {
       <DropShowcaseSection
         title="Starbucks Bearista – $30 → $200 Profit Per Item"
         bullets={[
-          "Members secured dozens within hours",
-          "Simple alert → buy → flip",
-          "Fast-moving item with massive margins",
+          "Starbucks Bearista: $170 profit each in a better format maybe like a pill format or something",
         ]}
         // imageNote="20–50 photos of members holding the Bearista, receipts, carts, etc."
         variant="default"
@@ -100,6 +102,8 @@ const Index = () => {
       <ThemeToggle />
 
       <CTASection />
+
+      {/* <PersonalPolicySalesCalculator /> */}
 
       <WhopCheckoutSection />
 

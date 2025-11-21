@@ -49,10 +49,10 @@ export const DropShowcaseSection = ({
               <ul className="space-y-4 sm:space-y-5">
                 {bullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 mt-1">
+                    {/* <div className="flex-shrink-0 mt-1">
                       <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                    </div>
-                    <span className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed">{bullet}</span>
+                    </div> */}
+                    <span className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed text-primary">{bullet}</span>
                   </li>
                 ))}
               </ul>

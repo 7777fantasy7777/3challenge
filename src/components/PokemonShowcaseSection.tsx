@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, ZoomIn } from "lucide-react";
+import { ArrowRight, CheckCircle, ZoomIn } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   Dialog,
@@ -160,7 +160,7 @@ export const PokemonShowcaseSection = ({
                     <div className="flex-shrink-0 mt-1">
                       <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
-                    <span className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed">
+                    <span className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed text-primary">
                       {bullet}
                     </span>
                   </li>
@@ -245,6 +245,21 @@ export const PokemonShowcaseSection = ({
             </div>
           )}
         </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-center pt-4">
+          <Button onClick={(e) => {
+              e.preventDefault();
+              const checkoutSection = document.getElementById('checkout');
+              if (checkoutSection) {
+                const yOffset = -80;
+                const y = checkoutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            }} variant="hero" size="xl" className="w-full sm:w-auto min-w-[200px] sm:min-w-[250px] shadow-glow hover:shadow-glow text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
+            Start 3-Day Free Trial
+            <ArrowRight className="w-4 h-4 flex-shrink-0" />
+          </Button>
+        </div>  
       </div>
     </section>
   );

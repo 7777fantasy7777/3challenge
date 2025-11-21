@@ -1,4 +1,5 @@
-import { User, Bell, ShoppingCart, TrendingUp, Repeat } from "lucide-react";
+import { User, Bell, ShoppingCart, TrendingUp, Repeat, ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 export const HowItWorksSection = () => {
   const steps = [
@@ -47,7 +48,7 @@ export const HowItWorksSection = () => {
               Simple. Scannable. Profitable.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-5 gap-8 lg:gap-12 relative">
             {steps.map((step, index) => {
               const Icon = step.icon;
@@ -92,6 +93,21 @@ export const HowItWorksSection = () => {
                 </div>
               );
             })}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-center pt-4">
+            <Button onClick={(e) => {
+              e.preventDefault();
+              const checkoutSection = document.getElementById('checkout');
+              if (checkoutSection) {
+                const yOffset = -80;
+                const y = checkoutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            }} variant="hero" size="xl" className="w-full sm:w-auto min-w-[200px] sm:min-w-[250px] shadow-glow hover:shadow-glow text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
+              Start 3-Day Free Trial
+              <ArrowRight className="w-4 h-4 flex-shrink-0" />
+            </Button>
           </div>
         </div>
       </div>

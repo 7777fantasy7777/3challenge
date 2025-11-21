@@ -60,7 +60,7 @@ export const Header = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-0.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30">
+        <div className="hidden md:flex items-center gap-0.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30 header-category">
           <button
             onClick={() => scrollToSection("hero")}
             className="px-3 py-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-lg hover:bg-primary/10 whitespace-nowrap"
@@ -104,7 +104,7 @@ export const Header = () => {
           onClick={scrollToCheckout}
           className="hidden md:flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-3 md:px-4 py-2 rounded-lg border border-primary/20 shadow-sm hover:shadow-md transition-all duration-200 flex-shrink-0"
         >
-          <span className="text-sm font-medium whitespace-nowrap">Join eMoney</span>
+          <span className="text-sm font-medium whitespace-nowrap">Start 3-Day Free Trial</span>
           <ArrowRight className="w-4 h-4 flex-shrink-0" />
         </Button>
       </nav>

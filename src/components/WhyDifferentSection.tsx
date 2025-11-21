@@ -1,4 +1,5 @@
-import { CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { Button } from "./ui/button";
 
 export const WhyDifferentSection = () => {
   const benefits = [
@@ -21,7 +22,7 @@ export const WhyDifferentSection = () => {
               We deliver what others promise
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {benefits.map((benefit, index) => (
               <div
@@ -34,6 +35,21 @@ export const WhyDifferentSection = () => {
                 <p className="text-base sm:text-lg md:text-xl text-left leading-relaxed">{benefit}</p>
               </div>
             ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-center pt-4">
+            <Button onClick={(e) => {
+              e.preventDefault();
+              const checkoutSection = document.getElementById('checkout');
+              if (checkoutSection) {
+                const yOffset = -80;
+                const y = checkoutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            }} variant="hero" size="xl" className="w-full sm:w-auto min-w-[200px] sm:min-w-[250px] shadow-glow hover:shadow-glow text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
+              Start 3-Day Free Trial
+              <ArrowRight className="w-4 h-4 flex-shrink-0" />
+            </Button>
           </div>
         </div>
       </div>

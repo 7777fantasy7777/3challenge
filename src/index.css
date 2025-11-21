@@ -317,3 +317,32 @@ All colors MUST be HSL.
   object-fit: cover;
   display: block;
 }
+
+/* Range Slider Styling */
+.range-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #10b981; /* emerald-500 */
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #10b981; /* emerald-500 */
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-appearance: none;
+}
+
+@media (max-width: 900px) {
+  .header-category{
+    display: none !important;
+  }
+}
