@@ -14,13 +14,14 @@ import product10 from "@/assets/product-10.jpg";
 import product11 from "@/assets/product-11.jpg";
 import HeroImageSilde from "./HeroImageSilde";
 import GradientText from './GradientText'
+import StarBorder from './StarBorder'
 
 const images = [
   { id: 1, img: "assets/hero-image/hero-image (1).jpg" },
-  { id: 2, img: "assets/hero-image/hero-image (2).jpg" },
-  { id: 3, img: "assets/hero-image/hero-image (3).jpg" },
-  { id: 4, img: "assets/hero-image/hero-image (5).jpg" },
-  { id: 5, img: "assets/hero-image/hero-image (4).jpg" },
+  // { id: 2, img: "assets/hero-image/hero-image (2).jpg" },
+  // { id: 3, img: "assets/hero-image/hero-image (3).jpg" },
+  // { id: 4, img: "assets/hero-image/hero-image (5).jpg" },
+  // { id: 5, img: "assets/hero-image/hero-image (4).jpg" },
 ];
 
 export const HeroSection = () => {
@@ -59,22 +60,49 @@ export const HeroSection = () => {
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 flex flex-col w-full" style={{ boxSizing: "revert" }}>
-            {/* Success Points - Mobile: Above Headline (order-1), Desktop: Above Button (order-5) */}
-            <div className="flex flex-col gap-3 sm:gap-4 items-center lg:items-start pb-2 sm:pb-4 order-1 lg:order-5">
-              <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
+            {/* Success Points - Always at the top */}
+            <div className="flex flex-col gap-1 sm:gap-1 items-center lg:items-start pb-2 sm:pb-4 order-0">
+              {/* <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
                 5,000+ Active Members on Whop
-              </button>
-              <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
+              </button> */}
+              <StarBorder
+                as="button"
+                className="custom-class rounded-[999px] "
+                color="cyan"
+                speed="5s"
+              >
+                <Star className="w-4 h-4" />
+                5,000+ Active Members on Whop
+              </StarBorder>
+              {/* <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
                 Thousands of verified success posts
-              </button>
-              <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
+              </button> */}
+              <StarBorder
+                as="button"
+                className="custom-class rounded-[999px]"
+                color="cyan"
+                speed="5s"
+              >
+                <Star className="w-4 h-4" />
+                Thousands of verified success posts
+              </StarBorder>
+              {/* <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
                 Success you can actually see
-              </button>
+              </button> */}
+              <StarBorder
+                as="button"
+                className="custom-class rounded-[999px]"
+                color="cyan"
+                speed="5s"
+              >
+                <Star className="w-4 h-4" />
+                Success you can actually see
+              </StarBorder>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3 sm:space-y-4 order-2">
-              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0" style={{ padding: "0 10px" }}>
                 {/* Build an Extra{" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
                   $2,000/Month Flipping,
@@ -120,7 +148,7 @@ export const HeroSection = () => {
               <Button
                 variant="hero"
                 size="xl"
-                className="w-full sm:w-auto min-w-[180px] sm:min-w-[220px] md:min-w-[250px] shadow-glow hover:shadow-glow text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6"
+                className="cta-button-animated w-full sm:w-auto min-w-[180px] sm:min-w-[220px] md:min-w-[250px] shadow-glow hover:shadow-glow text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 relative overflow-hidden"
                 onClick={(e) => {
                   e.preventDefault();
                   const checkoutSection = document.getElementById('checkout');
@@ -130,9 +158,12 @@ export const HeroSection = () => {
                     window.scrollTo({ top: y, behavior: 'smooth' });
                   }
                 }}
+                style={{ fontSize: '35px', padding: '20px 40px', color: 'white' }}
               >
-                Start 3-Day Free Trial
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Start 3-Day Free Trial
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                </span>
               </Button>
             </div>
 
