@@ -59,8 +59,8 @@ export const Header = () => {
           <span className="text-base sm:text-lg md:text-xl font-bold text-foreground whitespace-nowrap">eMoney</span>
         </div>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-0.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30 header-category">
+        {/* Navigation Links - Hidden below 850px */}
+        <div className="hidden 850:flex items-center gap-0.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30">
           <button
             onClick={() => scrollToSection("hero")}
             className="px-3 py-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-lg hover:bg-primary/10 whitespace-nowrap"
@@ -87,24 +87,23 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2 flex-shrink-0">
+        {/* Mobile/Tablet CTA Button - Shown below 850px */}
+        <div className="flex 850:hidden items-center gap-2 flex-shrink-0">
           <Button
-            variant="ghost"
-            size="sm"
             onClick={scrollToCheckout}
-            className="text-xs px-2.5 py-1.5 h-auto"
+            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 rounded-lg border border-primary/20 shadow-sm hover:shadow-md transition-all duration-200 text-sm font-medium whitespace-nowrap"
           >
-            Join
+            Get Started
+            <ArrowRight className="w-4 h-4 flex-shrink-0" />
           </Button>
         </div>
 
-        {/* CTA Button */}
+        {/* Desktop CTA Button - Shown above 850px */}
         <Button
           onClick={scrollToCheckout}
-          className="hidden md:flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-3 md:px-4 py-2 rounded-lg border border-primary/20 shadow-sm hover:shadow-md transition-all duration-200 flex-shrink-0"
+          className="hidden 850:flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-3 md:px-4 py-2 rounded-lg border border-primary/20 shadow-sm hover:shadow-md transition-all duration-200 flex-shrink-0"
         >
-          <span className="text-sm font-medium whitespace-nowrap">Start 3-Day Free Trial</span>
+          <span className="text-sm font-medium whitespace-nowrap">Get Started</span>
           <ArrowRight className="w-4 h-4 flex-shrink-0" />
         </Button>
       </nav>

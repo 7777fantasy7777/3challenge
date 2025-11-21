@@ -13,13 +13,14 @@ import product9 from "@/assets/product-9.jpg";
 import product10 from "@/assets/product-10.jpg";
 import product11 from "@/assets/product-11.jpg";
 import HeroImageSilde from "./HeroImageSilde";
+import GradientText from './GradientText'
 
 const images = [
   { id: 1, img: "assets/hero-image/hero-image (1).jpg" },
   { id: 2, img: "assets/hero-image/hero-image (2).jpg" },
   { id: 3, img: "assets/hero-image/hero-image (3).jpg" },
   { id: 4, img: "assets/hero-image/hero-image (5).jpg" },
-  { id: 5, img: "assets/hero-image/hero-image (4).jpg" }, 
+  { id: 5, img: "assets/hero-image/hero-image (4).jpg" },
 ];
 
 export const HeroSection = () => {
@@ -58,30 +59,39 @@ export const HeroSection = () => {
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 flex flex-col w-full" style={{ boxSizing: "revert" }}>
-            {/* Features List - Mobile: Above Headline (order-1), Desktop: Above Button (order-5) */}
-            <div className="flex flex-col gap-2.5 sm:gap-3 md:gap-4 items-center lg:items-start pb-2 sm:pb-4 order-1 lg:order-5">
-              <div className="flex items-start gap-2.5 sm:gap-3 group max-w-md">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-primary text-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm md:text-base text-foreground leading-relaxed">5,000+ Active Members on Whop</span>
-              </div>
-              <div className="flex items-start gap-2.5 sm:gap-3 group max-w-md">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-primary text-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm md:text-base text-foreground leading-relaxed">Thousands of verified success posts</span>
-              </div>
-              <div className="flex items-start gap-2.5 sm:gap-3 group max-w-md">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-primary text-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm md:text-base text-foreground leading-relaxed">Success you can actually see</span>
-              </div>
+            {/* Success Points - Mobile: Above Headline (order-1), Desktop: Above Button (order-5) */}
+            <div className="flex flex-col gap-3 sm:gap-4 items-center lg:items-start pb-2 sm:pb-4 order-1 lg:order-5">
+              <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
+                5,000+ Active Members on Whop
+              </button>
+              <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
+                Thousands of verified success posts
+              </button>
+              <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
+                Success you can actually see
+              </button>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3 sm:space-y-4 order-2">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0">
-                Build an Extra{" "}
+              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0">
+                {/* Build an Extra{" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
                   $2,000/Month Flipping,
                 </span>{" "}
-                Hidden Clearance Deals
+                Hidden Clearance Deals */}
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={10}
+                  showBorder={false}
+                  className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0"
+                >
+                  Build an Extra{" "}
+                  <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
+                    $2,000/Month Flipping,
+                  </span>{" "}
+                  Hidden Clearance Deals
+                </GradientText>
               </h1>
             </div>
 
@@ -96,7 +106,7 @@ export const HeroSection = () => {
             <div className="relative group mt-4 sm:mt-6 lg:hidden flex items-center justify-center w-full overflow-visible order-4">
               <div className="absolute -inset-1 sm:-inset-2 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
               <div className="w-full max-w-full overflow-visible flex items-center justify-center px-1 sm:px-2">
-                <HeroImageSilde 
+                <HeroImageSilde
                   randomRotation={true}
                   sensitivity={180}
                   sendToBackOnClick={false}
@@ -107,10 +117,10 @@ export const HeroSection = () => {
 
             {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start pt-2 sm:pt-4 px-2 sm:px-0 order-6">
-              <Button 
-                variant="hero" 
-                size="xl" 
-                className="w-full sm:w-auto min-w-[180px] sm:min-w-[220px] md:min-w-[250px] shadow-glow hover:shadow-glow text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6" 
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto min-w-[180px] sm:min-w-[220px] md:min-w-[250px] shadow-glow hover:shadow-glow text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6"
                 onClick={(e) => {
                   e.preventDefault();
                   const checkoutSection = document.getElementById('checkout');
@@ -127,7 +137,7 @@ export const HeroSection = () => {
             </div>
 
             {/* Footer Note */}
-            <div className="pt-1 sm:pt-2 px-2 sm:px-0 order-7">
+            <div className="pt-1 sm:pt-2 px-2 sm:px-0 order-7 my-5 mx-0">
               <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 flex-wrap">
                 <span>Start Free 3-Day Challenge</span>
                 <span className="text-border">•</span>
@@ -140,7 +150,7 @@ export const HeroSection = () => {
           <div className="hidden lg:flex relative group mt-0 items-center justify-center w-full overflow-visible">
             <div className="absolute -inset-2 md:-inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
             <div className="w-full max-w-full overflow-visible flex items-center justify-center">
-              <HeroImageSilde 
+              <HeroImageSilde
                 randomRotation={true}
                 sensitivity={180}
                 sendToBackOnClick={false}

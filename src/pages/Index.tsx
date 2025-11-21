@@ -37,7 +37,7 @@ const Index = () => {
       <DropShowcaseSection
         title="Starbucks Bearista – $30 → $200 Profit Per Item"
         bullets={[
-          "Starbucks Bearista: $170 profit each in a better format maybe like a pill format or something",
+          // "Starbucks Bearista: $170 profit each in a better format maybe like a pill format or something",
         ]}
         // imageNote="20–50 photos of members holding the Bearista, receipts, carts, etc."
         variant="default"
@@ -57,9 +57,9 @@ const Index = () => {
       <PokemonShowcaseSection
         title="Pokémon Clearance Wins – Turn $5-$15 Packs Into Fast Cash"
         bullets={[
-          "Hidden clearance finds members would never spot alone",
-          "Pokémon products flip fast with near-zero risk",
-          "Dozens of real results from stores nationwide",
+          // "Hidden clearance finds members would never spot alone",
+          // "Pokémon products flip fast with near-zero risk",
+          // "Dozens of real results from stores nationwide",
         ]}
       />
 

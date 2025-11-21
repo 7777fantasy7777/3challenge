@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        '850': {'min': '850px'},
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
