@@ -17,9 +17,9 @@ import HeroImageSilde from "./HeroImageSilde";
 const images = [
   { id: 1, img: "assets/hero-image/hero-image (1).jpg" },
   { id: 2, img: "assets/hero-image/hero-image (2).jpg" },
-  { id: 3, img: "assets/hero-image/hero-image (5).jpg" },
-  { id: 4, img: "assets/hero-image/hero-image (3).jpg" },
-  { id: 5, img: "assets/hero-image/hero-image (4).jpg" },
+  { id: 3, img: "assets/hero-image/hero-image (3).jpg" },
+  { id: 4, img: "assets/hero-image/hero-image (5).jpg" },
+  { id: 5, img: "assets/hero-image/hero-image (4).jpg" }, 
 ];
 
 export const HeroSection = () => {
