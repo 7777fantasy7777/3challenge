@@ -52,11 +52,12 @@ export const Header = () => {
         {/* Logo */}
         <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-shrink-0">
           <div className="relative">
-            <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
-              e
-            </span>
+            {/* <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
+              
+            </span> */}
+            <img src="/logo.webp" alt="logo" className="w-10 h-10" />
           </div>
-          <span className="text-base sm:text-lg md:text-xl font-bold text-foreground whitespace-nowrap">eMoney</span>
+          {/* <span className="text-base sm:text-lg md:text-xl font-bold text-foreground whitespace-nowrap">eMoney</span> */}
         </div>
 
         {/* Navigation Links - Hidden below 850px */}

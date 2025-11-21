@@ -102,13 +102,13 @@ export const HeroSection = () => {
 
             {/* Main Headline */}
             <div className="space-y-3 sm:space-y-4 order-2">
-              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0" style={{ padding: "0 10px" }}>
-                {/* Build an Extra{" "}
+              <h1 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0" style={{ padding: "0 30px" }}>
+                Build an Extra{" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
                   $2,000/Month Flipping,
                 </span>{" "}
-                Hidden Clearance Deals */}
-                <GradientText
+                Hidden Clearance Deals
+                {/* <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                   animationSpeed={10}
                   showBorder={false}
@@ -119,7 +119,7 @@ export const HeroSection = () => {
                     $2,000/Month Flipping,
                   </span>{" "}
                   Hidden Clearance Deals
-                </GradientText>
+                </GradientText> */}
               </h1>
             </div>
 
