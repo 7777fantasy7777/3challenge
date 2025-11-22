@@ -57,7 +57,7 @@ export const Header = () => {
             </span> */}
             <img src="/logo.webp" alt="logo" className="w-10 h-10" />
           </div>
-          {/* <span className="text-base sm:text-lg md:text-xl font-bold text-foreground whitespace-nowrap">eMoney</span> */}
+          <span className="text-base sm:text-lg md:text-xl font-bold text-foreground whitespace-nowrap">eMoney</span>
         </div>
 
         {/* Navigation Links - Hidden below 850px */}

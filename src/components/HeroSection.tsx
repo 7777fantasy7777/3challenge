@@ -101,31 +101,19 @@ export const HeroSection = () => {
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-3 sm:space-y-4 order-2">
-              <h1 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0" style={{ padding: "0 30px" }}>
-                Build an Extra{" "}
+            <div className="space-y-3 sm:space-y-4 order-2 w-full">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] md:leading-[1.2] tracking-tight px-4 sm:px-6 md:px-8 lg:px-0 text-center lg:text-left title-size">
+                ADD AN {" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
-                  $2,000/Month Flipping,
+                  EXTRA $2,000+/MONTH
                 </span>{" "}
-                Hidden Clearance Deals
-                {/* <GradientText
-                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                  animationSpeed={10}
-                  showBorder={false}
-                  className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] tracking-tight px-2 sm:px-0"
-                >
-                  Build an Extra{" "}
-                  <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
-                    $2,000/Month Flipping,
-                  </span>{" "}
-                  Hidden Clearance Deals
-                </GradientText> */}
+                <span className="block sm:inline"> TO YOUR  INCOME</span>
               </h1>
             </div>
 
             {/* Description */}
             <div className="space-y-3 sm:space-y-4 max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0 order-3">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed" style={{ marginBottom: '30px' }}>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                 In our <strong className="text-foreground font-semibold">3-Day First Flip Challenge</strong>, you'll use our Clearance AI + real community data to find, buy & flip your first profitable item.
               </p>
             </div>
@@ -144,11 +132,11 @@ export const HeroSection = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start pt-2 sm:pt-4 px-2 sm:px-0 order-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start pt-2 sm:pt-4 px-2 sm:px-0 order-6" style={{ padding: '0 50px' }}>
               <Button
                 variant="hero"
                 size="xl"
-                className="cta-button-animated w-full sm:w-auto min-w-[180px] sm:min-w-[220px] md:min-w-[250px] shadow-glow hover:shadow-glow text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 relative overflow-hidden"
+                className="cta-button-animated w-full sm:w-auto min-w-[200px] sm:min-w-[240px] md:min-w-[280px] text-white text-base sm:text-lg md:text-xl font-semibold px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 relative"
                 onClick={(e) => {
                   e.preventDefault();
                   const checkoutSection = document.getElementById('checkout');
@@ -158,11 +146,10 @@ export const HeroSection = () => {
                     window.scrollTo({ top: y, behavior: 'smooth' });
                   }
                 }}
-                style={{ fontSize: '35px', padding: '20px 40px', color: 'white' }}
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-3">
                   Start 3-Day Free Trial
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                 </span>
               </Button>
             </div>

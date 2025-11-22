@@ -347,63 +347,182 @@ All colors MUST be HSL.
   }
 }
 
-/* CTA Button Animations */
-@keyframes pulse-glow {
+/* Modern CTA Button Animations */
+@keyframes gradient-shift {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.2), 0 0 60px rgba(16, 185, 129, 0.1);
-    transform: scale(1);
+    background-position: 0% 50%;
   }
   50% {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6), 0 0 60px rgba(16, 185, 129, 0.4), 0 0 90px rgba(16, 185, 129, 0.2);
-    transform: scale(1.02);
+    background-position: 100% 50%;
   }
 }
 
-@keyframes shimmer {
+@keyframes pulse-glow-modern {
+  0%, 100% {
+    box-shadow: 
+      0 0 25px hsl(160 60% 45% / 0.5),
+      0 0 50px hsl(160 60% 45% / 0.3),
+      0 0 75px hsl(160 60% 45% / 0.15),
+      0 4px 20px hsl(160 60% 45% / 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 0 35px hsl(160 60% 45% / 0.7),
+      0 0 70px hsl(160 60% 45% / 0.5),
+      0 0 100px hsl(160 60% 45% / 0.25),
+      0 6px 30px hsl(160 60% 45% / 0.6);
+  }
+}
+
+@keyframes shimmer-modern {
   0% {
-    background-position: -200% center;
+    transform: translateX(-100%) translateY(-50%) rotate(45deg);
   }
   100% {
-    background-position: 200% center;
+    transform: translateX(200%) translateY(-50%) rotate(45deg);
   }
 }
 
-@keyframes float {
+@keyframes float-smooth {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes scale-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes arrow-slide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
   }
 }
 
 .cta-button-animated {
-  animation: pulse-glow 2s ease-in-out infinite, float 3s ease-in-out infinite;
+  background: linear-gradient(
+    135deg,
+    hsl(160, 60%, 45%) 0%,
+    hsl(160, 65%, 50%) 25%,
+    hsl(160, 70%, 55%) 50%,
+    hsl(160, 65%, 50%) 75%,
+    hsl(160, 60%, 45%) 100%
+  );
+  background-size: 200% 200%;
+  animation: 
+    gradient-shift 4s ease infinite,
+    pulse-glow-modern 2.5s ease-in-out infinite,
+    float-smooth 4s ease-in-out infinite,
+    scale-breathe 3s ease-in-out infinite;
   position: relative;
   overflow: hidden;
+  border: none;
+  border-radius: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cta-button-animated::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 50%;
   left: -100%;
   width: 100%;
-  height: 100%;
+  height: 200%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4),
     transparent
   );
-  animation: shimmer 3s ease-in-out infinite;
+  animation: shimmer-modern 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cta-button-animated::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    hsl(160, 60%, 45% / 0.8),
+    hsl(160, 65%, 50% / 0.8),
+    hsl(160, 70%, 55% / 0.8)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .cta-button-animated:hover {
-  animation: pulse-glow 1s ease-in-out infinite, float 2s ease-in-out infinite;
-  transform: scale(1.05);
+  animation: 
+    gradient-shift 2s ease infinite,
+    pulse-glow-modern 1.5s ease-in-out infinite,
+    float-smooth 3s ease-in-out infinite,
+    scale-breathe 2s ease-in-out infinite;
+  transform: scale(1.05) translateY(-2px);
 }
 
 .cta-button-animated:hover::before {
-  animation: shimmer 1.5s ease-in-out infinite;
+  animation: shimmer-modern 1.5s ease-in-out infinite;
 }
+
+.cta-button-animated:hover::after {
+  opacity: 1;
+}
+
+.cta-button-animated:active {
+  transform: scale(0.98) translateY(0px);
+  animation-play-state: paused;
+}
+
+.cta-button-animated svg {
+  animation: arrow-slide 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.cta-button-animated:hover svg {
+  transform: translateX(4px);
+  animation: arrow-slide 1s ease-in-out infinite;
+}
+
+.title-size {
+  font-size: 70px !important;
+}
+
+@media (max-width: 1310px) {
+  .title-size {
+    font-size: 62px !important;
+  }
+}
+
+@media (max-width: 1145px) {
+  .title-size {
+    font-size: 55px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .title-size {
+    font-size: 36px !important;
+  }
+}
+

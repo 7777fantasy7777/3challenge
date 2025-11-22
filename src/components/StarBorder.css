@@ -32,11 +32,11 @@
 .inner-content {
   position: relative;
   border: 1px solid #222;
-  background: #10151d;
+  background: #1d3a3a;
   color: white;
   font-size: 16px;
   text-align: center;
-  padding: 10px 20px;
+  padding: 4px 13px;
   border-radius: 100px;
   z-index: 1;
   display: flex;
