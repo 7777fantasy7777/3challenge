@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "/assets/hero-image/hero-image (1).jpg";
 import product1 from "@/assets/product-1.jpg";
 import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.jpg";
@@ -12,16 +12,8 @@ import product8 from "@/assets/product-8.jpg";
 import product9 from "@/assets/product-9.jpg";
 import product10 from "@/assets/product-10.jpg";
 import product11 from "@/assets/product-11.jpg";
-import HeroImageSilde from "./HeroImageSilde";
 import GradientText from './GradientText'
 import StarBorder from './StarBorder'
-
-const images = [
-  { id: 1, img: "assets/hero-image/hero-image (1).jpg" },
-  { id: 2, img: "assets/hero-image/hero-image (4).jpg" },
-  { id: 3, img: "assets/hero-image/hero-image (3).jpg" },
-  { id: 4, img: "assets/hero-image/hero-image (2).jpg" },
-];
 
 export const HeroSection = () => {
   const products = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11];
@@ -112,21 +104,21 @@ export const HeroSection = () => {
 
             {/* Description */}
             <div className="space-y-3 sm:space-y-4 max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0 order-3">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed" style={{ marginBottom: "15px" }}>
                 In our <strong className="text-foreground font-semibold">3-Day First Flip Challenge</strong>, you'll use our Clearance AI + real community data to find, buy & flip your first profitable item.
               </p>
             </div>
 
             {/* Hero Image - Mobile: Above Button (order-4), Desktop: Hidden (moved to right column) */}
-            <div className="relative group mt-4 sm:mt-6 lg:hidden flex items-center justify-center w-full overflow-visible order-4 title-margin">
-              <div className="absolute -inset-1 sm:-inset-2 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
-              <div className="w-full max-w-full overflow-visible flex items-center justify-center px-1 sm:px-2">
-                <HeroImageSilde
-                  randomRotation={true}
-                  sensitivity={180}
-                  sendToBackOnClick={false}
-                  cardsData={images}
-                />
+            <div className="mt-4 sm:mt-6 lg:hidden flex items-center justify-center w-full order-4 title-margin">
+              <div className="w-full max-w-sm sm:max-w-md px-6" style={{ marginBottom: "10px"}}>
+                <div className="hero-image-frame">
+                  <img
+                    src={heroImage}
+                    alt="Community success stories"
+                    className="w-full rounded-[28px] object-cover hero-image-float"
+                  />
+                </div>
               </div>
             </div>
 
@@ -164,15 +156,15 @@ export const HeroSection = () => {
           </div>
 
           {/* Right Column - Hero Image (Desktop Only) */}
-          <div className="hidden lg:flex relative group mt-0 items-center justify-center w-full overflow-visible">
-            <div className="absolute -inset-2 md:-inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
-            <div className="w-full max-w-full overflow-visible flex items-center justify-center">
-              <HeroImageSilde
-                randomRotation={true}
-                sensitivity={180}
-                sendToBackOnClick={false}
-                cardsData={images}
-              />
+          <div className="hidden lg:flex items-center justify-center w-full">
+            <div className="w-full max-w-xl xl:max-w-[640px] px-6">
+              <div className="hero-image-frame hero-image-frame--lg">
+                <img
+                  src={heroImage}
+                  alt="Community success stories"
+                  className="w-full rounded-[36px] object-cover hero-image-float"
+                />
+              </div>
             </div>
           </div>
         </div>
