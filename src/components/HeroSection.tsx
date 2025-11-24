@@ -56,12 +56,12 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 relative z-10" style={{ marginTop: '60px' }}>
+      <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 relative z-10 top-margin">
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 flex flex-col w-full" style={{ boxSizing: "revert" }}>
             {/* Success Points - Always at the top */}
-            <div className="flex flex-col gap-1 sm:gap-1 items-center lg:items-start pb-2 sm:pb-4 order-0">
+            <div className="flex flex-col items-center lg:items-start order-0 sentence-gap">
               {/* <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
                 5,000+ Active Members on Whop
               </button> */}
@@ -101,11 +101,11 @@ export const HeroSection = () => {
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-3 sm:space-y-4 order-2 w-full">
+            <div className="space-y-3 sm:space-y-4 order-2 w-full title-margin">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] md:leading-[1.2] tracking-tight px-4 sm:px-6 md:px-8 lg:px-0 text-center lg:text-left title-size">
                 ADD AN {" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
-                  EXTRA $2,000+/MONTH
+                  EXTRA <span className="display">$2,000+/MONTH</span>
                 </span>{" "}
                 <span className="block sm:inline"> TO YOUR  INCOME</span>
               </h1>
@@ -119,7 +119,7 @@ export const HeroSection = () => {
             </div>
 
             {/* Hero Image - Mobile: Above Button (order-4), Desktop: Hidden (moved to right column) */}
-            <div className="relative group mt-4 sm:mt-6 lg:hidden flex items-center justify-center w-full overflow-visible order-4">
+            <div className="relative group mt-4 sm:mt-6 lg:hidden flex items-center justify-center w-full overflow-visible order-4 title-margin">
               <div className="absolute -inset-1 sm:-inset-2 bg-gradient-primary opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
               <div className="w-full max-w-full overflow-visible flex items-center justify-center px-1 sm:px-2">
                 <HeroImageSilde
@@ -136,7 +136,7 @@ export const HeroSection = () => {
               <Button
                 variant="hero"
                 size="xl"
-                className="cta-button-animated w-full sm:w-auto min-w-[200px] sm:min-w-[240px] md:min-w-[280px] text-white text-base sm:text-lg md:text-xl font-semibold px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 relative"
+                className="cta-button-animated w-full sm:w-auto min-w-[200px] sm:min-w-[240px] md:min-w-[280px] text-white text-base sm:text-lg md:text-xl font-semibold px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 relative hero-button"
                 onClick={(e) => {
                   e.preventDefault();
                   const checkoutSection = document.getElementById('checkout');

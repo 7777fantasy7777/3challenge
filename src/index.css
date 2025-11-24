@@ -255,12 +255,42 @@ All colors MUST be HSL.
   justify-content: center;
 }
 
+.top-margin{
+  margin-top: 60px;
+}
+
+.sentence-gap{
+  gap: 5px;
+}
+
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .stack-container {
     perspective: 400px;
     /* Ensure container doesn't cause horizontal scroll */
     max-width: calc(100vw - 16px);
+  }
+}
+
+@media (max-width: 375px) {
+  .logo-title-text {
+    display: none;
+  }
+  
+  .top-margin{
+    margin-top: 35px;
+  }
+
+  .sentence-gap{
+    gap: 1px;
+  }
+
+  .display{
+    display: none;
+  }
+
+  .hero-button{
+    height: 0 !important;
   }
 }
 

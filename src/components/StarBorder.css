@@ -29,25 +29,90 @@
   z-index: 0;
 }
 
+/* Light mode - more subtle gradient animation */
+:root .border-gradient-bottom,
+:root .border-gradient-top {
+  opacity: 0.4;
+}
+
+/* Dark mode - more visible gradient animation */
+.dark .border-gradient-bottom,
+.dark .border-gradient-top {
+  opacity: 0.7;
+}
+
 .inner-content {
   position: relative;
-  border: 1px solid #222;
-  background: #1d3a3a;
-  color: white;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
   font-size: 16px;
+  font-weight: 500;
   text-align: center;
-  padding: 4px 13px;
+  padding: 12px 24px;
   border-radius: 100px;
   z-index: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.inner-content svg {
+  color: inherit;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* Light mode specific styling - casual and clean */
+:root .inner-content {
+  background: hsl(220, 20%, 98%);
+  border-color: hsl(220, 20%, 85%);
+  color: hsl(220, 30%, 15%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+:root .inner-content svg {
+  color: hsl(220, 30%, 15%);
+}
+
+:root .inner-content:hover {
+  background: hsl(220, 20%, 96%);
+  border-color: hsl(220, 20%, 80%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Dark mode specific styling */
+.dark .inner-content {
+  background: hsl(220, 25%, 12%);
+  border-color: hsl(220, 20%, 20%);
+  color: hsl(var(--foreground));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .inner-content svg {
+  color: hsl(var(--foreground));
+}
+
+.dark .inner-content:hover {
+  background: hsl(220, 25%, 15%);
+  border-color: hsl(220, 20%, 25%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 425px) {
   .inner-content {
     font-size: 12px;
+    padding: 6px 12px;  
+  }
+}
+
+@media (max-width: 375px){
+  .title-margin{
+    margin-top: 3px !important;
   }
 }
 

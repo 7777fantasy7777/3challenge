@@ -1,8 +1,13 @@
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
-export const ThemeToggle = () => {
+interface ThemeToggleProps {
+  className?: string;
+}
+
+export const ThemeToggle = ({ className }: ThemeToggleProps = {}) => {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
@@ -26,7 +31,7 @@ export const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 shadow-lg hover:bg-background"
+      className={cn("hover:bg-background", className)}
     >
       {theme === "dark" ? (
         <Sun className="h-5 w-5" />

@@ -6,7 +6,6 @@ import { DropShowcaseSection } from "@/components/DropShowcaseSection";
 import { PokemonShowcaseSection } from "@/components/PokemonShowcaseSection";
 import { StatsSection } from "@/components/StatsSection";
 import { CTASection } from "@/components/CTASection";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Reviews } from "@/components/Review";
 import { Header } from "@/components/Header";
 import WhopCheckoutSection from "@/components/WhopCheckoutSection";
@@ -98,8 +97,6 @@ const Index = () => {
           </div>
         </div>
       </div> */}
-
-      <ThemeToggle />
 
       <CTASection />
 
