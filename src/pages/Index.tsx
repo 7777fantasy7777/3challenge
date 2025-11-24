@@ -34,7 +34,7 @@ const Index = () => {
       </div>
 
       <DropShowcaseSection
-        title="$30 → $200 Profit Per Item"
+        title="$30 into $370 - $400 profit each"
         bullets={[
           // "Starbucks Bearista: $170 profit each in a better format maybe like a pill format or something",
         ]}
