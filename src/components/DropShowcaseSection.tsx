@@ -47,8 +47,8 @@ export const DropShowcaseSection = ({
           <div className="mb-12 sm:mb-16 lg:mb-20 text-center recent-wins-stack">
             <span className="recent-wins-pill">Community Proof</span>
             <h2 className="recent-wins-title">
-              <span className="recent-wins-highlight recent-wins-highlight--silver">Recent</span>
-              <span className="recent-wins-highlight recent-wins-highlight--crimson">Wins</span>
+              <span className="" style={{ color: "#37d09d" }}>Recent</span>
+              <span className="" style={{ color: "#37d09d" }}>Wins</span>
             </h2>
             <p className="recent-wins-subtext">
               Real flips, real revenue from inside the 7-Day Free Trial
