@@ -47,10 +47,11 @@ export const DropShowcaseSection = ({
           <div className="mb-12 sm:mb-16 lg:mb-20 text-center recent-wins-stack">
             <span className="recent-wins-pill">Community Proof</span>
             <h2 className="recent-wins-title">
-              Recent Wins
+              <span className="recent-wins-highlight recent-wins-highlight--silver">Recent</span>
+              <span className="recent-wins-highlight recent-wins-highlight--crimson">Wins</span>
             </h2>
             <p className="recent-wins-subtext">
-              Real flips, real revenue from inside the 3-Day Challenge
+              Real flips, real revenue from inside the 7-Day Free Trial
             </p>
           </div>
           
