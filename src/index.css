@@ -125,6 +125,71 @@ All colors MUST be HSL.
   }
 }
 
+/* Recent Wins Title - Casual & Attractive Style */
+.recent-wins-title {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', 'Kalam', 'Caveat', 'Dancing Script', cursive, sans-serif;
+  color: hsl(0, 84%, 60%);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 0 0 10px rgba(220, 38, 38, 0.2);
+  letter-spacing: 0.08em;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+  font-weight: 700;
+  position: relative;
+}
+
+.recent-wins-title:hover {
+  transform: rotate(-0.5deg) scale(1.02);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), 0 0 15px rgba(220, 38, 38, 0.3);
+}
+
+.recent-wins-border {
+  border-color: hsl(0, 84%, 60% / 0.6);
+  transform: rotate(1deg);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+}
+
+.recent-wins-container:hover .recent-wins-title {
+  transform: rotate(-0.5deg) scale(1.02);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), 0 0 15px rgba(220, 38, 38, 0.3);
+}
+
+.recent-wins-container:hover .recent-wins-border {
+  border-color: hsl(0, 84%, 60% / 0.8);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+.recent-wins-underline {
+  background: linear-gradient(to right, transparent, hsl(0, 84%, 60% / 0.7), transparent);
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+/* Light mode adjustments */
+:root .recent-wins-title {
+  color: hsl(0, 84%, 55%);
+}
+
+:root .recent-wins-border {
+  border-color: hsl(0, 84%, 55% / 0.5);
+}
+
+:root .recent-wins-underline {
+  background: linear-gradient(to right, transparent, hsl(0, 84%, 55% / 0.6), transparent);
+}
+
+/* Dark mode adjustments */
+.dark .recent-wins-title {
+  color: hsl(0, 84%, 65%);
+}
+
+.dark .recent-wins-border {
+  border-color: hsl(0, 84%, 65% / 0.7);
+}
+
+.dark .recent-wins-underline {
+  background: linear-gradient(to right, transparent, hsl(0, 84%, 65% / 0.8), transparent);
+}
+
 @keyframes sparkle-flow {
   0% {
     transform: translateX(0) translateY(-50%);

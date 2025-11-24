@@ -43,6 +43,19 @@ export const DropShowcaseSection = ({
     <section className={`py-16 sm:py-20 lg:py-24 ${variant === "alternate" ? "bg-card" : "bg-background"}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
+          {/* Recent Wins Title - Casual & Attractive */}
+          <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
+            <div className="inline-block relative px-6 sm:px-8 py-2 sm:py-3 recent-wins-container group">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold relative z-10 recent-wins-title">
+                Recent Wins
+              </h2>
+              {/* Decorative border box - casual style */}
+              <div className="absolute inset-0 rounded-xl recent-wins-border"></div>
+              {/* Accent underline */}
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2/3 h-1 sm:h-1.5 rounded-full recent-wins-underline"></div>
+            </div>
+          </div>
+          
           <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center ${variant === "alternate" ? "lg:grid-flow-dense" : ""}`}>
             <div className={`space-y-6 lg:space-y-8 ${variant === "alternate" ? "lg:col-start-2" : ""}`}>
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight">{title}</h3>
