@@ -45,6 +45,12 @@
   gap: 10px;
 }
 
+@media (max-width: 425px) {
+  .inner-content {
+    font-size: 12px;
+  }
+}
+
 @keyframes star-movement-bottom {
   0% {
     transform: translate(0%, 0%);

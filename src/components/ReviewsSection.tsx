@@ -266,10 +266,10 @@ const ReviewsModal = ({
         <div className="px-6 pt-6 pb-4 border-b border-border bg-card flex justify-center items-center flex-col">
           <div className="text-xs text-muted-foreground mb-2">Overall rating</div>
           <div className="flex items-baseline gap-2 mb-2">
-            <span className="text-4xl font-bold">4.79</span>
+            <span className="text-4xl font-bold">5</span>
             <StarIcon size={24} />
           </div>
-          <div className="text-sm text-muted-foreground">1872 ratings & reviews</div>
+          <div className="text-sm text-muted-foreground">{totalReviews.toLocaleString()} ratings & reviews</div>
         </div>
 
         {/* Filter Chips */}
@@ -408,49 +408,46 @@ const ReviewsSection = () => {
   
   const isLoading = false;
   
-  // Calculate rating stats from loaded reviews
+  // Filter to only 5-star reviews first
+  const fiveStarReviews = useMemo(() => {
+    return allReviews.filter(r => r.rating === 5);
+  }, [allReviews]);
+  
+  // Calculate rating stats from 5-star reviews only
   const ratingStats = useMemo(() => {
-    if (allReviews.length === 0) {
+    if (fiveStarReviews.length === 0) {
       return {
-        overallRating: 4.79,
-        totalReviews: 1869,
+        overallRating: 5,
+        totalReviews: 0,
         distribution: [
-          { stars: 5, percentage: 88 },
-          { stars: 4, percentage: 8 },
-          { stars: 3, percentage: 1 },
+          { stars: 5, percentage: 100 },
+          { stars: 4, percentage: 0 },
+          { stars: 3, percentage: 0 },
           { stars: 2, percentage: 0 },
-          { stars: 1, percentage: 3 },
+          { stars: 1, percentage: 0 },
         ],
       };
     }
 
-    const ratingCounts: { [key: number]: number } = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-    let totalRating = 0;
-
-    allReviews.forEach((review) => {
-      ratingCounts[review.rating as keyof typeof ratingCounts]++;
-      totalRating += review.rating;
-    });
-
-    const overallRating = totalRating / allReviews.length;
+    // Since we only have 5-star reviews, the distribution is straightforward
     const distribution = [5, 4, 3, 2, 1].map((stars) => ({
       stars,
-      percentage: Math.round((ratingCounts[stars] / allReviews.length) * 100),
+      percentage: stars === 5 ? 100 : 0,
     }));
 
     return {
-      overallRating: Math.round(overallRating * 100) / 100,
-      totalReviews: allReviews.length,
+      overallRating: 5,
+      totalReviews: fiveStarReviews.length,
       distribution,
     };
-  }, [allReviews]);
+  }, [fiveStarReviews]);
 
   const ratingDistribution = ratingStats.distribution;
   const overallRating = ratingStats.overallRating;
   const totalReviews = ratingStats.totalReviews;
 
-  // Show first 4 reviews in the main section
-  const reviews = allReviews.slice(0, 4);
+  // Show first 4 reviews
+  const reviews = fiveStarReviews.slice(0, 4);
 
   console.log("🎯 Reviews to display:", reviews.length, reviews);
 
@@ -468,18 +465,18 @@ const ReviewsSection = () => {
               
               {/* Overall Rating - YELLOW STARS */}
               <div className="flex items-baseline gap-2">
-                <div className="flex items-center gap-0.5" aria-label={`4.79 out of 5 stars`}>
+                <div className="flex items-center gap-0.5" aria-label={`5 out of 5 stars`}>
                   {[...Array(5)].map((_, i) => (
                     <StarIcon key={i} size={16} />
                   ))}
                 </div>
                 <span className="text-base font-medium text-foreground">
-                4.79 out of 5
+                5 out of 5
                 </span>
               </div>
               
               {/* Total Reviews */}
-              <p className="text-sm text-muted-foreground">1,872 total reviews</p>
+              <p className="text-sm text-muted-foreground">{totalReviews.toLocaleString()} total reviews</p>
               
               {/* Rating Distribution */}
               <div className="space-y-0 pt-2">
@@ -570,7 +567,7 @@ const ReviewsSection = () => {
         </div>
       </section>
 
-      <ReviewsModal open={isModalOpen} onOpenChange={setIsModalOpen} allReviews={allReviews} totalReviews={totalReviews} overallRating={overallRating} />
+      <ReviewsModal open={isModalOpen} onOpenChange={setIsModalOpen} allReviews={fiveStarReviews} totalReviews={fiveStarReviews.length} overallRating={overallRating} />
     </>
   );
 };
