@@ -153,7 +153,7 @@ const EarningsCalculatorSection: React.FC = () => {
               }
             }}
           >
-            Unlock these flips with a Free Trial →
+            Unlock these flips with a Free Trial <span className='display'>→</span>
           </button>
         </div>
       </div>
