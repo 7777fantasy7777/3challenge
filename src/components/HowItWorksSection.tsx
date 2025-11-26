@@ -56,7 +56,6 @@ export const HowItWorksSection = () => {
                 <div key={index} className="relative">
                   {index < steps.length - 1 && (
                     <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary via-primary/50 to-transparent opacity-50 overflow-visible">
-                      {/* Animated flashing dots flowing along the line from step 1 to step 5 */}
                       {[...Array(8)].map((_, dotIndex) => (
                         <div
                           key={dotIndex}
@@ -67,7 +66,6 @@ export const HowItWorksSection = () => {
                           }}
                         />
                       ))}
-                      {/* Additional smaller flashing dots */}
                       {[...Array(5)].map((_, dotIndex) => (
                         <div
                           key={`small-${dotIndex}`}

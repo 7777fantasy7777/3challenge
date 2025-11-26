@@ -22,7 +22,6 @@ interface PokemonShowcaseSectionProps {
   bullets: string[];
 }
 
-// All Pokémon image filenames
 const pokemonImages = [
   "https://res.cloudinary.com/dngvhkjz9/image/upload/v1763225677/image_1_za09qg.png",
   "https://res.cloudinary.com/dngvhkjz9/image/upload/v1763225548/20250125_091508_aapjdq.jpg",
@@ -87,7 +86,6 @@ export const PokemonShowcaseSection = ({
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
   useEffect(() => {
-    // Safety guard in case something tries to run this in a non-DOM env
     if (typeof window === "undefined") return;
 
     const loadImages = async () => {
@@ -123,7 +121,6 @@ export const PokemonShowcaseSection = ({
         const shuffled = [...loadedImages].sort(() => Math.random() - 0.5);
 
         setImages(shuffled);
-        // Make sure visibleCount never exceeds actual number of images
         setVisibleCount((prev) => Math.min(prev, shuffled.length));
       } catch (error) {
         console.error("Error loading images:", error);
@@ -146,7 +143,6 @@ export const PokemonShowcaseSection = ({
     <section className="py-16 sm:py-20 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start mb-12"> */}
             <div className="space-y-6 lg:space-y-8">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight text-center">
                 {title}
@@ -166,8 +162,7 @@ export const PokemonShowcaseSection = ({
                   </li>
                 ))}
               </ul>
-            </div>
-          {/* </div> */}
+            </div>  
 
           {images.length > 0 ? (
             <>

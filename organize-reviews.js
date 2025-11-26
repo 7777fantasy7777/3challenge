@@ -35,6 +35,4 @@ const organized = {
 // Write back to file with proper formatting
 fs.writeFileSync('review.json', JSON.stringify(organized, null, 2), 'utf8');
 
-console.log(`✅ Organized ${uniqueReviews.length} unique reviews`);
-console.log(`📊 Total sections processed: ${Object.keys(parsed).length}`);
 

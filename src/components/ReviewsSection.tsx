@@ -34,7 +34,6 @@ interface RawReview {
   };
 }
 
-// Utility functions
 const generateInitials = (name: string | null, username: string): string => {
   if (name) {
     const parts = name.trim().split(/\s+/);
@@ -101,21 +100,16 @@ const getDisplayName = (name: string | null, username: string): string => {
   return name || username;
 };
 
-// Parse and transform review data
 const parseReviews = (rawData: string): Review[] => {
   try {
-    // The file is now in standard JSON format: { "totalCount": number, "reviews": [...] }
     const parsed = JSON.parse(rawData);
     
-    // Extract reviews array
     const reviewsArray = parsed?.reviews || [];
     
     if (!Array.isArray(reviewsArray)) {
       console.error("Reviews array is not an array:", reviewsArray);
       return [];
     }
-    
-    console.log(`Successfully parsed ${reviewsArray.length} reviews`);
     
     return reviewsArray.map((raw: RawReview) => {
       const displayName = getDisplayName(raw.user.name, raw.user.username);
@@ -208,14 +202,12 @@ const ReviewsModal = ({
   const scrollableRef = useRef<HTMLDivElement>(null);
   const reviewsPerPage = 10;
   
-  // Filter reviews by rating
   const filteredReviews = selectedFilter === "all" 
     ? allReviews 
     : allReviews.filter(r => r.rating === selectedFilter);
   
   const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
   
-  // Reset to page 1 when modal opens or filter changes
   useEffect(() => {
     if (open) {
       setCurrentPage(1);
@@ -262,7 +254,6 @@ const ReviewsModal = ({
           </div>
         </DialogHeader>
         
-        {/* Overall Rating Section */}
         <div className="px-6 pt-6 pb-4 border-b border-border bg-card flex justify-center items-center flex-col">
           <div className="text-xs text-muted-foreground mb-2">Overall rating</div>
           <div className="flex items-baseline gap-2 mb-2">
@@ -280,7 +271,6 @@ const ReviewsModal = ({
           </div>
         </div>
 
-        {/* Filter Chips */}
         <div className="px-6 py-4 border-b border-border bg-card flex flex-wrap gap-2">
           {(["all", 5, 4, 3, 2, 1] as const).map((filter) => (
             <button
@@ -310,7 +300,6 @@ const ReviewsModal = ({
               currentReviews.map((review, index) => (
                 <li key={review.id} className="flex min-w-0 flex-col">
                   <div className="mb-4 flex items-start gap-3">
-                    {/* Avatar */}
                     <div className="flex-shrink-0">
                       {review.avatar ? (
                         <img
@@ -325,7 +314,6 @@ const ReviewsModal = ({
                       )}
                     </div>
 
-                    {/* Username and Stars */}
                     <div className="flex min-w-0 flex-col gap-0.5 flex-1">
                       <span className="text-base font-semibold text-foreground">
                         {review.username}
@@ -338,21 +326,18 @@ const ReviewsModal = ({
                     </div>
                   </div>
 
-                  {/* Review Text */}
                   <div className="mb-3">
                     <p className="text-base text-foreground font-normal leading-relaxed">
                       {review.text}
                     </p>
                   </div>
 
-                  {/* Purchase Context */}
                   <div className="mb-6">
                     <span className="text-xs text-muted-foreground font-medium">
                       {review.purchaseContext}
                     </span>
                   </div>
 
-                  {/* Divider Line */}
                   {index < currentReviews.length - 1 && (
                     <div className="mb-6 h-px bg-border w-full" />
                   )}
@@ -364,7 +349,6 @@ const ReviewsModal = ({
           </ul>
         </div>
 
-        {/* Pagination Footer */}
         {totalPages > 1 && (
           <div className="px-6 py-4 border-t border-border bg-card flex items-center justify-center gap-4">
             <button
@@ -375,9 +359,6 @@ const ReviewsModal = ({
               <ChevronLeft className="w-4 h-4" />
               Previous
             </button>
-            {/* <span className="text-sm text-muted-foreground">
-              Page {currentPage} of {totalPages}
-            </span> */}
             <button
               onClick={handleNext}
               disabled={currentPage === totalPages}
@@ -396,17 +377,9 @@ const ReviewsModal = ({
 const ReviewsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
-  // Parse reviews directly from imported file
   const allReviews = useMemo(() => {
-    console.log("📦 reviewDataRaw length:", reviewDataRaw?.length || 0);
-    console.log("📦 reviewDataRaw first 200 chars:", reviewDataRaw?.substring(0, 200));
-    
     try {
       const parsed = parseReviews(reviewDataRaw);
-      console.log("✅ Parsed reviews count:", parsed.length);
-      if (parsed.length > 0) {
-        console.log("✅ First review:", parsed[0]);
-      }
       return parsed;
     } catch (error) {
       console.error("❌ Error parsing reviews:", error);
@@ -416,13 +389,11 @@ const ReviewsSection = () => {
   
   const isLoading = false;
   
-  // Use all reviews except 1-star to keep things realistic but positive
   const displayReviews = useMemo(() => {
     return allReviews.filter((r) => r.rating !== 1);
   }, [allReviews]);
   
-  // Calculate rating stats from displayable reviews (5–2 stars, plus empty 1-star bar)
-  const ratingStats = useMemo(() => {
+    const ratingStats = useMemo(() => {
     if (displayReviews.length === 0) {
       return {
         overallRating: 0,
@@ -453,10 +424,7 @@ const ReviewsSection = () => {
   const overallRating = ratingStats.overallRating;
   const totalReviews = ratingStats.totalReviews;
   
-  // Show first 4 reviews from the filtered set
   const reviews = displayReviews.slice(0, 4);
-
-  console.log("🎯 Reviews to display:", reviews.length, reviews);
 
   return (
     <>
@@ -466,11 +434,9 @@ const ReviewsSection = () => {
       >
         <div className="max-w-[80rem] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[0.23fr_0.77fr] gap-12 lg:gap-[10rem]">
-            {/* Left Column - Rating Summary */}
             <div className="space-y-2">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground">Reviews</h2>
               
-              {/* Overall Rating - YELLOW STARS */}
               <div className="flex items-baseline gap-2">
                 <div
                   className="flex items-center gap-0.5"
@@ -485,10 +451,8 @@ const ReviewsSection = () => {
                 </span>
               </div>
               
-              {/* Total Reviews */}
               <p className="text-sm text-muted-foreground">{totalReviews.toLocaleString()} total reviews</p>
               
-              {/* Rating Distribution */}
               <div className="space-y-0 pt-2">
                 {ratingDistribution.map((item) => (
                   <RatingBar key={item.stars} stars={item.stars} percentage={item.percentage} />
@@ -496,7 +460,6 @@ const ReviewsSection = () => {
               </div>
             </div>
 
-            {/* Right Column - Reviews List */}
             <div className="flex w-full min-w-0 flex-col">
               {isLoading ? (
                 <div className="text-gray-400 py-8">Loading reviews...</div>
@@ -507,7 +470,6 @@ const ReviewsSection = () => {
                   {reviews.map((review, index) => (
                   <li key={review.id} className="flex min-w-0 flex-col">
                     <div className="mb-4 flex items-start gap-3">
-                      {/* Avatar */}
                       <div className="flex-shrink-0">
                         {review.avatar ? (
                           <img
@@ -522,7 +484,6 @@ const ReviewsSection = () => {
                         )}
                       </div>
 
-                      {/* Username and Stars */}
                       <div className="flex min-w-0 flex-col gap-0.5 flex-1">
                         <div className="flex items-center justify-between gap-4">
                           <span className="text-base font-semibold text-foreground">
@@ -540,21 +501,18 @@ const ReviewsSection = () => {
                       </div>
                     </div>
 
-                    {/* Review Text */}
                     <div className="mb-2">
                       <p className="text-base text-foreground font-normal leading-relaxed">
                         {review.text}
                       </p>
                     </div>
 
-                    {/* Purchase Context */}
                     <div className="mb-6">
                       <span className="text-xs text-muted-foreground font-medium">
                         {review.purchaseContext}
                       </span>
                     </div>
 
-                    {/* Divider Line */}
                     {index < reviews.length - 1 && (
                       <div className="mb-6 h-px bg-border w-full" />
                     )}
@@ -563,7 +521,6 @@ const ReviewsSection = () => {
                 </ul>
               )}
 
-              {/* See All Reviews Button */}
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}

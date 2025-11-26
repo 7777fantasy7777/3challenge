@@ -12,11 +12,9 @@ export const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Show header when at the top
       if (currentScrollY < 10) {
         setIsVisible(true);
       } else {
-        // Hide when scrolling down, show when scrolling up
         setIsVisible(currentScrollY < lastScrollY);
       }
 
@@ -50,18 +48,13 @@ export const Header = () => {
       )}
     >
       <nav className="flex items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2.5 sm:py-3 md:py-4 bg-card/80 backdrop-blur-md border-b border-border/50 shadow-lg">
-        {/* Logo */}
         <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-shrink-0">
           <div className="relative">
-            {/* <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
-              
-            </span> */}
             <img src="/logo.webp" alt="logo" className="w-10 h-10" />
           </div>
           <span className="text-base sm:text-lg md:text-xl font-bold text-foreground whitespace-nowrap logo-title-text">eMoney</span>
         </div>
 
-        {/* Navigation Links - Hidden below 850px */}
         <div className="hidden 850:flex items-center gap-0.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30">
           <button
             onClick={() => scrollToSection("hero")}
@@ -89,7 +82,6 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile/Tablet CTA Button and Theme Toggle - Shown below 850px */}
         <div className="flex 850:hidden items-center gap-2 flex-shrink-0">
           <ThemeToggle />
           <Button
@@ -101,7 +93,6 @@ export const Header = () => {
           </Button>
         </div>
 
-        {/* Desktop CTA Button and Theme Toggle - Shown above 850px */}
         <div className="hidden 850:flex items-center gap-2 flex-shrink-0">
           <ThemeToggle />
           <Button

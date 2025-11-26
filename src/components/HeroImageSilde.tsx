@@ -62,7 +62,7 @@ interface StackProps {
 export default function Stack({
   randomRotation = false,
   sensitivity = 200,
-  cardDimensions = null, // Now optional, will be calculated responsively
+  cardDimensions = null,
   cardsData = [],
   animationConfig = { stiffness: 260, damping: 20 },
   sendToBackOnClick = false
@@ -70,48 +70,37 @@ export default function Stack({
   const { width: windowWidth } = useWindowSize();
   const isMobile = useIsMobile();
   
-  // Calculate responsive dimensions
   const responsiveDimensions = useMemo(() => {
-    // If cardDimensions is provided, use it (for backward compatibility)
     if (cardDimensions) {
       return cardDimensions;
     }
 
-    // Calculate based on viewport width
     let cardWidth: number;
     let cardHeight: number;
 
     if (windowWidth < 640) {
-      // Mobile (sm) - optimized for 320px to 640px
       if (windowWidth < 360) {
-        // Very small screens (320px - 360px)
-        cardWidth = windowWidth - 20; // Minimal padding (10px each side)
+        cardWidth = windowWidth - 20;
         cardHeight = cardWidth * 0.58;
       } else if (windowWidth < 480) {
-        // Small mobile (360px - 480px)
-        const availableWidth = windowWidth - 28; // 14px padding on each side
+        const availableWidth = windowWidth - 28;
         cardWidth = Math.min(availableWidth, windowWidth * 0.9);
         cardHeight = cardWidth * 0.58;
       } else {
-        // Standard mobile (480px - 640px)
-        const availableWidth = windowWidth - 40; // 20px padding on each side
+        const availableWidth = windowWidth - 40;
         cardWidth = Math.min(availableWidth, windowWidth * 0.85);
         cardHeight = cardWidth * 0.57;
       }
     } else if (windowWidth < 768) {
-      // Small tablets
       cardWidth = Math.min(windowWidth - 96, 400);
       cardHeight = cardWidth * 0.57;
     } else if (windowWidth < 1024) {
-      // Tablets (md)
       cardWidth = Math.min(windowWidth * 0.85, 500);
       cardHeight = cardWidth * 0.57;
     } else if (windowWidth < 1280) {
-      // Desktop (lg)
       cardWidth = Math.min(windowWidth * 0.45, 600);
       cardHeight = cardWidth * 0.57;
     } else {
-      // Large desktop (xl+)
       cardWidth = Math.min(700, windowWidth * 0.4);
       cardHeight = 400;
     }
@@ -119,44 +108,35 @@ export default function Stack({
     return { width: cardWidth, height: cardHeight };
   }, [windowWidth, cardDimensions]);
 
-  // Calculate container dimensions with extra space for rotated cards
-  // Cards can rotate, so we need extra space to prevent clipping
   const containerDimensions = useMemo(() => {
-    const maxRotation = isMobile ? 10 : 20; // Max rotation in degrees
-    // Calculate diagonal length when rotated
+    const maxRotation = isMobile ? 10 : 20;
     const diagonal = Math.sqrt(
       responsiveDimensions.width * responsiveDimensions.width + 
       responsiveDimensions.height * responsiveDimensions.height
     );
     const rotationRad = maxRotation * Math.PI / 180;
-    // Calculate how much extra space we need when card is rotated
     const extraSpace = diagonal * Math.abs(Math.sin(rotationRad)) * 0.5;
     
-    // Adaptive padding based on screen size
     let minPadding: number;
     if (windowWidth < 360) {
-      minPadding = 12; // Very small screens (320px) - minimal padding to prevent clipping
+      minPadding = 12;
     } else if (windowWidth < 640) {
-      minPadding = 18; // Small mobile screens (375px)
+      minPadding = 18;
     } else {
-      minPadding = 60; // Larger screens
+      minPadding = 60;
     }
     
     const padding = Math.max(extraSpace, minPadding);
     
-    // Calculate container width, but ensure it fits within viewport
     const calculatedWidth = responsiveDimensions.width + padding * 2;
-    const maxAllowedWidth = windowWidth - (windowWidth < 360 ? 8 : 16); // Smaller margin on tiny screens
+    const maxAllowedWidth = windowWidth - (windowWidth < 360 ? 8 : 16);
     
-    // If calculated width exceeds max, reduce padding
     let actualPadding = padding;
     let containerWidth = calculatedWidth;
     
     if (calculatedWidth > maxAllowedWidth) {
-      // Reduce padding to fit within viewport
       actualPadding = Math.max((maxAllowedWidth - responsiveDimensions.width) / 2, minPadding * 0.5);
       containerWidth = responsiveDimensions.width + actualPadding * 2;
-      // Final check to ensure it doesn't exceed
       containerWidth = Math.min(containerWidth, maxAllowedWidth);
     }
     
@@ -167,10 +147,9 @@ export default function Stack({
     };
   }, [responsiveDimensions, isMobile, windowWidth]);
 
-  // Adjust sensitivity for mobile
   const responsiveSensitivity = useMemo(() => {
     if (isMobile) {
-      return Math.min(sensitivity, 120); // Lower sensitivity on mobile
+      return Math.min(sensitivity, 120);
     }
     return sensitivity;
   }, [isMobile, sensitivity]);
@@ -196,7 +175,6 @@ export default function Stack({
     });
   };
 
-  // Ensure container width doesn't exceed viewport
   const finalContainerWidth = Math.min(containerDimensions.width, windowWidth - 16);
 
   return (
@@ -210,8 +188,7 @@ export default function Stack({
       }}
     >
       {cards.map((card, index) => {
-        const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
-        // Reduce rotation on mobile for better visibility
+        const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;   
         const rotationMultiplier = isMobile ? 2 : 4;
 
         return (

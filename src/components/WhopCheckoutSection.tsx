@@ -6,24 +6,20 @@ const WhopCheckoutSection = () => {
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
     useEffect(() => {
-        // Check initial theme
         const checkTheme = () => {
             const isDark = document.documentElement.classList.contains("dark");
             const newTheme = isDark ? "dark" : "light";
             setTheme(newTheme);
         };
 
-        // Set initial theme
         checkTheme();
 
-        // Watch for DOM class changes
         const observer = new MutationObserver(checkTheme);
         observer.observe(document.documentElement, {
             attributes: true,
             attributeFilter: ["class"],
         });
 
-        // Also listen to storage changes (in case theme is changed elsewhere)
         const handleStorageChange = (e: StorageEvent) => {
             if (e.key === "theme") {
                 checkTheme();
@@ -32,7 +28,6 @@ const WhopCheckoutSection = () => {
 
         window.addEventListener("storage", handleStorageChange);
 
-        // Poll for changes as a fallback (in case MutationObserver doesn't catch it)
         const interval = setInterval(checkTheme, 500);
 
         return () => {

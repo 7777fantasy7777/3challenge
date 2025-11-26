@@ -45,8 +45,7 @@ function CalculationRow({
 export default function PersonalPolicySalesCalculator() {
     const [dailyPolicies, setDailyPolicies] = useState<number>(0);
 
-    // Calculate all derived values
-    const calculations = useMemo(() => {
+        const calculations = useMemo(() => {
         const monthlyPolicies = dailyPolicies * 30;
         const monthlyCommission = monthlyPolicies * 100;
         const futureMonthlyResidual = (monthlyPolicies * 100) / 12;
@@ -63,19 +62,15 @@ export default function PersonalPolicySalesCalculator() {
     return (
         <div className="min-h-screen bg-slate-100 dark:bg-background py-8 sm:py-12 px-4">
             <div className="max-w-2xl mx-auto bg-white dark:bg-card rounded-lg shadow-lg p-6 sm:p-8">
-                {/* Title */}
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-foreground mb-2">
                     What Could You Realistically Make With eMoney?
                 </h2>
 
-                {/* Subtitle */}
                 <p className="text-gray-600 dark:text-muted-foreground text-sm sm:text-base mb-8">
                     How many policies do you personally sell per day?
                 </p>
 
-                {/* Slider Container */}
                 <div className="mb-8">
-                    {/* Current Value Display */}
                     <div className="mb-4">
                         <div className="text-center">
                             <span className="text-3xl sm:text-4xl font-bold text-blue-600 dark:text-blue-500">
@@ -84,7 +79,6 @@ export default function PersonalPolicySalesCalculator() {
                         </div>
                     </div>
 
-                    {/* Slider */}
                     <div className="relative mb-6">
                         <input
                             type="range"
@@ -100,7 +94,6 @@ export default function PersonalPolicySalesCalculator() {
                         />
                     </div>
 
-                    {/* Tick Labels */}
                     <div className="flex justify-between px-1">
                         {Array.from({ length: 16 }, (_, i) => (
                             <div
@@ -115,7 +108,6 @@ export default function PersonalPolicySalesCalculator() {
                     </div>
                 </div>
 
-                {/* Calculations Table */}
                 <div className="rounded-lg overflow-hidden">
                     <CalculationRow
                         label="Daily Policies"

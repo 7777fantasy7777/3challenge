@@ -144,33 +144,6 @@ export const Reviews = () => {
                     </h2>
                 </div>
 
-                {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto w-full h-[300px] swiper">
-                    {Reviews.map((card, index) => (
-                        <div className="swiper-wrapper ">
-                            <div
-                                key={index}
-                                className="swiper-slide bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-300 hover:scale-105"
-                            >
-                                <div className="text-6xl mb-4">{card.image}</div>
-                                <h3 className="font-semibold text-card-foreground mb-2 text-sm">
-                                    {card.title}
-                                </h3>
-                                <div className="flex items-baseline gap-2 mb-1">
-                                    <span className="text-2xl font-bold text-primary">{card.price}</span>
-                                    <span className="text-sm text-muted-foreground line-through">
-                                        was {card.originalPrice}
-                                    </span>
-                                </div>
-                                {card.savings && (
-                                    <div className="inline-block px-2 py-1 bg-destructive/20 text-destructive text-xs font-semibold rounded">
-                                        Save {card.savings}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
-
                 <Swiper 
                     spaceBetween={30}
                     slidesPerView={1}

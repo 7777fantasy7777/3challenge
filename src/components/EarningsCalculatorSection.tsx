@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
 
-// Constants
 const PROFIT_PER_FLIP = 20;
 const MEMBERSHIP_COST = 49;
 
@@ -49,8 +48,7 @@ const EarningsCalculatorSection: React.FC = () => {
     
     return () => observer.disconnect();
   }, []);
-
-  // Calculate all derived values
+    
   const calculations = useMemo(() => {
     const weeklyProfit = flipsPerWeek * PROFIT_PER_FLIP;
     const monthlyProfit = weeklyProfit * 4.33;
@@ -68,19 +66,15 @@ const EarningsCalculatorSection: React.FC = () => {
   return (
     <section className="bg-slate-100 dark:bg-slate-900 py-12 sm:py-16 px-4">
       <div className="max-w-[700px] mx-auto bg-white dark:bg-card p-6 sm:p-8 rounded-2xl shadow-lg eMoney-card">
-        {/* Title */}
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-2 text-gray-800 dark:text-foreground">
           What Could You Realistically Make With eMoney?
         </h2>
 
-        {/* Subtitle */}
         <p className="text-slate-600 dark:text-muted-foreground text-center mb-8 text-sm sm:text-base">
           Move the slider and see your potential.
         </p>
 
-        {/* Slider Container */}
         <div className="mb-8">
-          {/* Label and Value */}
           <div className="flex items-center justify-between mb-4">
             <label className="text-sm sm:text-base font-medium text-gray-700 dark:text-foreground">
               Flips per week
@@ -90,7 +84,6 @@ const EarningsCalculatorSection: React.FC = () => {
             </span>
           </div>
 
-          {/* Slider */}
           <div className="relative mb-4 mx-auto py-0 px-[6.5%]">
             <input
               type="range"
@@ -106,7 +99,6 @@ const EarningsCalculatorSection: React.FC = () => {
             />
           </div>
 
-          {/* Tick Labels */}
           <div className="flex justify-between px-1">
             {tickMarks.map((tick) => {
               const isActive = flipsPerWeek === tick;
@@ -127,19 +119,16 @@ const EarningsCalculatorSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Profit Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <ProfitCard label="Weekly Profit" value={calculations.weeklyProfit} />
           <ProfitCard label="Monthly Profit" value={calculations.monthlyProfit} />
           <ProfitCard label="Yearly Profit" value={calculations.yearlyProfit} />
         </div>
 
-        {/* Membership Line */}
         <p className="text-sm text-slate-500 dark:text-muted-foreground text-center mb-6">
           Covers your membership after {calculations.membershipFlipsToCover} flips.
         </p>
 
-        {/* CTA Button */}
         <div className="text-center">
           <button
             className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-semibold rounded-full px-6 py-3 transition-colors duration-200 shadow-md hover:shadow-lg"

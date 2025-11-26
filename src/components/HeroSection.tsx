@@ -20,9 +20,7 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Animated Product Background */}
       <div className="absolute inset-0 opacity-10 overflow-hidden">
-        {/* First row - scrolling right */}
         <div className="absolute top-[10%] left-0 right-0 flex animate-scroll-right">
           {[...products, ...products].map((product, i) => (
             <img
@@ -34,7 +32,6 @@ export const HeroSection = () => {
           ))}
         </div>
 
-        {/* Second row - scrolling left */}
         <div className="absolute bottom-[10%] left-0 right-0 flex animate-scroll-left">
           {[...products, ...products].map((product, i) => (
             <img
@@ -49,9 +46,7 @@ export const HeroSection = () => {
 
       <div className="mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 relative z-10 top-margin">
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-20 items-center">
-          {/* Left Column - Text Content */}
           <div className="text-center lg:text-left space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 flex flex-col w-full" style={{ boxSizing: "revert" }}>
-            {/* Success Points - Always at the top */}
             <div className="flex flex-col items-center lg:items-start order-0 sentence-gap">
               {/* <button className="sm:w-auto min-w-[280px] sm:min-w-[320px] px-6 py-4 rounded-[999px] bg-gradient-to-b from-[#14254b] via-[#0d1b3a] to-[#070f26] text-white font-semibold text-sm sm:text-base tracking-wide border border-white/15 shadow-[0_0_20px_rgba(59,130,246,0.35)] ring-1 ring-cyan-400/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.55)] transition-all duration-300">
                 5,000+ Active Members on Whop
@@ -91,7 +86,6 @@ export const HeroSection = () => {
               </StarBorder>
             </div>
 
-            {/* Main Headline */}
             <div className="space-y-3 sm:space-y-4 order-2 w-full title-margin">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] md:leading-[1.2] tracking-tight px-4 sm:px-6 md:px-8 lg:px-0 text-center lg:text-left title-size">
                 ADD AN {" "}
@@ -102,14 +96,12 @@ export const HeroSection = () => {
               </h1>
             </div>
 
-            {/* Description */}
             <div className="space-y-3 sm:space-y-4 max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0 order-3">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed" style={{ marginBottom: "15px" }}>
                 In our <strong className="text-foreground font-semibold">3-Day First Flip Challenge</strong>, you'll use our Clearance AI + real community data to find, buy & flip your first profitable item.
               </p>
             </div>
 
-            {/* Hero Image - Mobile: Above Button (order-4), Desktop: Hidden (moved to right column) */}
             <div className="mt-4 sm:mt-6 lg:hidden flex items-center justify-center w-full order-4 title-margin">
               <div className="w-full max-w-sm sm:max-w-md px-6" style={{ marginBottom: "10px"}}>
                 <div className="hero-image-frame">
@@ -122,7 +114,6 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start pt-2 sm:pt-4 px-2 sm:px-0 order-6" style={{ padding: '0 50px' }}>
               <Button
                 variant="hero"
@@ -132,7 +123,7 @@ export const HeroSection = () => {
                   e.preventDefault();
                   const checkoutSection = document.getElementById('checkout');
                   if (checkoutSection) {
-                    const yOffset = -80; // Offset for better visual positioning
+                    const yOffset = -80;
                     const y = checkoutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                   }
@@ -145,7 +136,6 @@ export const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Footer Note */}
             <div className="pt-1 sm:pt-2 px-2 sm:px-0 order-7 my-5 mx-0">
               <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 flex-wrap">
                 <span>Start Free 3-Day Challenge</span>
@@ -155,7 +145,6 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Hero Image (Desktop Only) */}
           <div className="hidden lg:flex items-center justify-center w-full">
             <div className="w-full max-w-xl xl:max-w-[640px] px-6">
               <div className="hero-image-frame hero-image-frame--lg">
