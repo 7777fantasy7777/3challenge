@@ -18,7 +18,7 @@ interface ImageData {
 }
 
 interface PokemonShowcaseSectionProps {
-  title: string;
+  title: React.ReactNode;
   bullets: string[];
 }
 
@@ -146,11 +146,11 @@ export const PokemonShowcaseSection = ({
     <section className="py-16 sm:py-20 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start mb-12">
+          {/* <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start mb-12"> */}
             <div className="space-y-6 lg:space-y-8">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight text-center">
                 {title}
-              </h3>
+              </h3> 
               <ul className="space-y-4 sm:space-y-5">
                 {bullets.map((bullet, index) => (
                   <li
@@ -167,7 +167,7 @@ export const PokemonShowcaseSection = ({
                 ))}
               </ul>
             </div>
-          </div>
+          {/* </div> */}
 
           {images.length > 0 ? (
             <>

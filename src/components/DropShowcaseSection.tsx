@@ -1,5 +1,5 @@
 import { CheckCircle, ZoomIn } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,7 +13,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { log } from "console";
 
 interface DropShowcaseSectionProps {
-  title: string;
+  title: ReactNode;
   bullets: string[];
   imageNote?: string;
   variant?: "default" | "alternate";
@@ -57,7 +57,7 @@ export const DropShowcaseSection = ({
           
           <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center ${variant === "alternate" ? "lg:grid-flow-dense" : ""}`}>
             <div className={`space-y-6 lg:space-y-8 ${variant === "alternate" ? "lg:col-start-2" : ""}`}>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight">{title}</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight text-center">{title}</h3>
               <ul className="space-y-4 sm:space-y-5">
                 {bullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 sm:gap-4">

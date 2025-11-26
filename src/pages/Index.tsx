@@ -34,7 +34,12 @@ const Index = () => {
       </div>
 
       <DropShowcaseSection
-        title="$30 into $370 - $400 profit each"
+        title={
+          <>
+            <span style={{ color: "#37d09d" }}>$30</span> into{" "}
+            <span style={{ color: "#37d09d" }}>$370 - $400</span> profit each
+          </>
+        }
         bullets={[
           // "Starbucks Bearista: $170 profit each in a better format maybe like a pill format or something",
         ]}
@@ -54,7 +59,11 @@ const Index = () => {
       /> */}
 
       <PokemonShowcaseSection
-        title="Pokémon Clearance Wins – Turn $5-$15 Packs Into Fast Cash"
+        title={
+          <>
+            <span style={{ color: "#37d09d" }}>Pokémon</span> <br /> Clearance Wins – Turn <span style={{ color: "#37d09d" }}>$5-$15</span> Packs Into Fast Cash
+          </>
+        }
         bullets={[
           // "Hidden clearance finds members would never spot alone",
           // "Pokémon products flip fast with near-zero risk",

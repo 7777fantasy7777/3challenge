@@ -96,7 +96,7 @@ export const HeroSection = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] sm:leading-[1.15] md:leading-[1.2] tracking-tight px-4 sm:px-6 md:px-8 lg:px-0 text-center lg:text-left title-size">
                 ADD AN {" "}
                 <span className="text-primary bg-gradient-primary bg-clip-text text-transparent block sm:inline">
-                  EXTRA <span className="display">$2,000+/MONTH</span>
+                  EXTRA $2,000+/MONTH
                 </span>{" "}
                 <span className="block sm:inline"> TO YOUR  INCOME</span>
               </h1>

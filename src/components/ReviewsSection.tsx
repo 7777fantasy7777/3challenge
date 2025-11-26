@@ -266,10 +266,18 @@ const ReviewsModal = ({
         <div className="px-6 pt-6 pb-4 border-b border-border bg-card flex justify-center items-center flex-col">
           <div className="text-xs text-muted-foreground mb-2">Overall rating</div>
           <div className="flex items-baseline gap-2 mb-2">
-            <span className="text-4xl font-bold">5</span>
-            <StarIcon size={24} />
+            <span className="text-4xl font-bold">
+              {overallRating.toFixed(1)}
+            </span>
+            <div className="flex items-center gap-1">
+              {[...Array(Math.round(overallRating || 0))].map((_, i) => (
+                <StarIcon key={i} size={18} />
+              ))}
+            </div>
           </div>
-          <div className="text-sm text-muted-foreground">{totalReviews.toLocaleString()} ratings & reviews</div>
+          <div className="text-sm text-muted-foreground">
+            {totalReviews.toLocaleString()} ratings & reviews
+          </div>
         </div>
 
         {/* Filter Chips */}
@@ -408,46 +416,45 @@ const ReviewsSection = () => {
   
   const isLoading = false;
   
-  // Filter to only 5-star reviews first
-  const fiveStarReviews = useMemo(() => {
-    return allReviews.filter(r => r.rating === 5);
+  // Use all reviews except 1-star to keep things realistic but positive
+  const displayReviews = useMemo(() => {
+    return allReviews.filter((r) => r.rating !== 1);
   }, [allReviews]);
   
-  // Calculate rating stats from 5-star reviews only
+  // Calculate rating stats from displayable reviews (5–2 stars, plus empty 1-star bar)
   const ratingStats = useMemo(() => {
-    if (fiveStarReviews.length === 0) {
+    if (displayReviews.length === 0) {
       return {
-        overallRating: 5,
+        overallRating: 0,
         totalReviews: 0,
-        distribution: [
-          { stars: 5, percentage: 100 },
-          { stars: 4, percentage: 0 },
-          { stars: 3, percentage: 0 },
-          { stars: 2, percentage: 0 },
-          { stars: 1, percentage: 0 },
-        ],
+        distribution: [5, 4, 3, 2, 1].map((stars) => ({ stars, percentage: 0 })),
       };
     }
 
-    // Since we only have 5-star reviews, the distribution is straightforward
-    const distribution = [5, 4, 3, 2, 1].map((stars) => ({
-      stars,
-      percentage: stars === 5 ? 100 : 0,
-    }));
+    const totalReviews = displayReviews.length;
+
+    const distribution = [5, 4, 3, 2, 1].map((stars) => {
+      const count = displayReviews.filter((r) => r.rating === stars).length;
+      const percentage = (count / totalReviews) * 100;
+      return { stars, percentage };
+    });
+
+    const overallRating =
+      displayReviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews;
 
     return {
-      overallRating: 5,
-      totalReviews: fiveStarReviews.length,
+      overallRating,
+      totalReviews,
       distribution,
     };
-  }, [fiveStarReviews]);
+  }, [displayReviews]);
 
   const ratingDistribution = ratingStats.distribution;
   const overallRating = ratingStats.overallRating;
   const totalReviews = ratingStats.totalReviews;
-
-  // Show first 4 reviews
-  const reviews = fiveStarReviews.slice(0, 4);
+  
+  // Show first 4 reviews from the filtered set
+  const reviews = displayReviews.slice(0, 4);
 
   console.log("🎯 Reviews to display:", reviews.length, reviews);
 
@@ -465,13 +472,16 @@ const ReviewsSection = () => {
               
               {/* Overall Rating - YELLOW STARS */}
               <div className="flex items-baseline gap-2">
-                <div className="flex items-center gap-0.5" aria-label={`5 out of 5 stars`}>
-                  {[...Array(5)].map((_, i) => (
+                <div
+                  className="flex items-center gap-0.5"
+                  aria-label={`${overallRating.toFixed(1)} out of 5 stars`}
+                >
+                  {[...Array(Math.round(overallRating || 0))].map((_, i) => (
                     <StarIcon key={i} size={16} />
                   ))}
                 </div>
                 <span className="text-base font-medium text-foreground">
-                5 out of 5
+                  {overallRating.toFixed(1)} out of 5
                 </span>
               </div>
               
@@ -567,7 +577,13 @@ const ReviewsSection = () => {
         </div>
       </section>
 
-      <ReviewsModal open={isModalOpen} onOpenChange={setIsModalOpen} allReviews={fiveStarReviews} totalReviews={fiveStarReviews.length} overallRating={overallRating} />
+      <ReviewsModal
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        allReviews={displayReviews}
+        totalReviews={totalReviews}
+        overallRating={overallRating}
+      />
     </>
   );
 };
